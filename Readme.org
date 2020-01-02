@@ -1,0 +1,40 @@
+* General info
+
+Generates SVG maps (and ultimately PNGs for =anki-ultimate-geography=) mainly using shapefiles from [[https://www.naturalearthdata.com/][Natural Earth Data]]. The style of the maps was intended to follow that of the Locator Maps on Wikimedia (e.g. [[https://commons.wikimedia.org/wiki/File:Belarus_in_its_region.svg][Belarus in its region]]).
+
+The data for the Celtic Sea and the English Channel are from [[https://doi.org/10.1594/PANGAEA.777975][International Hydrographic Organization, IHO; Sieger, Rainer (2012): Limits of oceans and seas in digitized, machine readable form. Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research, Bremerhaven, PANGAEA]], which is under [[https://creativecommons.org/licenses/by/3.0/][CC BY 3.0]].
+
+* Dependencies
+
+=npm=, =gdal-bin=, =mapshaper=, =d3-geo-projection=
+
+#+begin_src shell
+sudo apt install npm gdal-bin
+npm install mapshaper
+npm install d3-geo-projection
+#+end_src
+
+* Warning
+
+The code is extremely messy!
+
+* Bering Strait
+
+The shp files in [[file:shp/original/bering_strait.shp]] were manually edited with QGIS, using Natural Earth Data's ne_10m_geography_marine_polys.shp as the basis for the US and Russian coastlines and mostly relying on the [[https://web.archive.org/web/20190529115635/http://www.iho.int/mtg_docs/com_wg/S-23WG/S-23WG_Misc/Draft_2002/S-23_Draft_2002_NORTH_PACIFIC.doc][IHO's 2002 draft of "Names and Limits of Oceans and Seas"]] for the northern and southern limits of the strait.
+
+#+begin_quote
+7.9	BERING STRAIT
+Bering Strait is situated between the north east extremity of Russia and the Seward Peninsula in Alaska. It has the following limits:
+
+On the North:
+From Mys2 Unikyn (66°22'N – 170°35'W), on the coast of Poluostrov Chukotskiy, a line eastward to the coast of Seward Peninsula at the southern entrance to Shimaref Inlet (66°11'N – 166°14'W) (the common limit with the Arctic Ocean, see 9, and the Chukchi Sea, see 9.10).
+
+On the South:
+A line from Mys Chaplina (64°50'N – 172°20'W), in Russia, eastwards to Sledge Island (64°30'N – 166°15'W), off the south western coast of the Seward Peninsula in Alaska. 
+#+end_quote
+
+However, since the coordinates of Mys Chaplina (64°50'N – 172°20'W) do not agree with those given on Wikipedia ([[https://en.wikipedia.org/wiki/Cape_Chaplino][64°24′17″N 172°13′39″W]]) or those implied by the map on page 21 of [[https://web.archive.org/web/20190529115635/http://www.iho.int/mtg_docs/com_wg/S-23WG/S-23WG_Misc/Draft_2002/S-23_Draft_2002_NORTH_PACIFIC.doc][the aforementioned document]], I've adjusted the south-western vertex to the coordinates given by Wikipedia for Mys Chaplina.
+
+* License
+
+[[file:map_data.json]] and the images in =tests/samples/= are released under [[https://creativecommons.org/licenses/by-sa/3.0/][CC BY-SA 3.0]]. All the remaining files are released under the [[https://unlicense.org/][Unlicense]].

@@ -1,0 +1,10 @@
+/experiments/
+/marine_polys/
+/marine_regions/
+node_modules/
+old_map_data/
+png/
+shp/*/
+!shp/original/
+svg/
+package-lock.json

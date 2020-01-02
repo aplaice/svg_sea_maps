@@ -1,0 +1,983 @@
+{
+    "adriatic_sea": {
+        "highlighted_ids": [
+            "Adriatic_Sea"
+        ],
+        "width": 310.1,
+        "x_offset": 1961,
+        "y_offset": 593
+    },
+    "aegean_sea": {
+        "highlighted_ids": [
+            "Aegean_Sea",
+            "Sea_of_Crete"
+        ],
+        "width": 267.8,
+        "x_offset": 2074,
+        "y_offset": 654
+    },
+    "alboran_sea": {
+        "highlighted_ids": [
+            "Alboran_Sea"
+        ],
+        "width": 242.7,
+        "x_offset": 1821,
+        "y_offset": 689
+    },
+    "andaman_sea": {
+        "highlighted_ids": [
+            "Andaman_Sea",
+            "Gulf_of_Martaban"
+        ],
+        "width": 863.8,
+        "x_offset": 2525,
+        "y_offset": 828
+    },
+    "arabian_sea": {
+        "highlighted_ids": [
+            "Arabian_Sea",
+            "Gulf_of_Masira",
+            "Gulf_of_Khambh\u00e4t",
+            "Gulf_of_Kutch"
+        ],
+        "width": 863.8,
+        "x_offset": 2085,
+        "y_offset": 788
+    },
+    "arafura_sea": {
+        "comment": "deliberately excluding gulf of carpentaria contra IHO: see Wikipedia",
+        "highlighted_ids": [
+            "Arafura_Sea"
+        ],
+        "lon_0": "150",
+        "width": 863.8,
+        "x_offset": 1345,
+        "y_offset": 1110
+    },
+    "aral_sea": {
+        "highlighted_ids": [
+            "Aral_Sea"
+        ],
+        "lon_0": "0",
+        "partially_highlighted_ids": [
+            "Aral_Sea_historic"
+        ],
+        "width": 462.7,
+        "x_offset": 2300,
+        "y_offset": 478
+    },
+    "balearic_sea": {
+        "highlighted_ids": [
+            "Balearic_Sea"
+        ],
+        "width": 255.1,
+        "x_offset": 1842,
+        "y_offset": 646
+    },
+    "bali_sea": {
+        "highlighted_ids": [
+            "Bali_Sea"
+        ],
+        "lon_0": "150",
+        "width": 530.3,
+        "x_offset": 1375,
+        "y_offset": 1135
+    },
+    "baltic_sea": {
+        "highlighted_ids": [
+            "Baltic_Sea",
+            "Mecklenburger_Bucht",
+            "Gulf_of_Bothnia",
+            "Gulf_of_Finland",
+            "Gulf_of_Riga",
+            "Kaliningrad"
+        ],
+        "width": 530.3,
+        "x_offset": 1757,
+        "y_offset": 315
+    },
+    "barents_sea": {
+        "highlighted_ids": [
+            "Barents_Sea",
+            "Storfjorden"
+        ],
+        "width": 783.5,
+        "x_offset": 1707,
+        "y_offset": 93
+    },
+    "bass_strait": {
+        "highlighted_ids": [
+            "Bass_Strait"
+        ],
+        "lon_0": "150",
+        "width": 644.6,
+        "x_offset": 1600,
+        "y_offset": 1520
+    },
+    "bay_of_bengal": {
+        "highlighted_ids": [
+            "Bay_of_Bengal",
+            "Palk_Strait"
+        ],
+        "width": 863.8,
+        "x_offset": 2475,
+        "y_offset": 768
+    },
+    "bay_of_biscay": {
+        "highlighted_ids": [
+            "Bay_of_Biscay"
+        ],
+        "width": 471.5,
+        "x_offset": 1702,
+        "y_offset": 515
+    },
+    "bay_of_plenty": {
+        "highlighted_ids": [
+            "Bay_of_Plenty"
+        ],
+        "lon_0": "150",
+        "width": 359,
+        "x_offset": 1969,
+        "y_offset": 1680
+    },
+    "beaufort_sea": {
+        "highlighted_ids": [
+            "Beaufort_Sea",
+            "Mackenzie_Bay"
+        ],
+        "lon_0": "150",
+        "width": 747,
+        "x_offset": 2005,
+        "y_offset": 92
+    },
+    "bering_sea": {
+        "highlighted_ids": [
+            "Bering_Sea",
+            "Karaginskiy_Gulf",
+            "Gulf_of_Anadyr'",
+            "Norton_Sound",
+            "Bristol_Bay",
+            "Baird_Inlet"
+        ],
+        "lon_0": "150",
+        "width": 1277.6,
+        "x_offset": 1558,
+        "y_offset": 112
+    },
+    "bering_strait": {
+        "highlighted_ids": [
+            "Bering_Strait"
+        ],
+        "lon_0": "150",
+        "width": 677.5,
+        "x_offset": 1948,
+        "y_offset": 179
+    },
+    "bismarck_sea": {
+        "highlighted_ids": [
+            "Bismarck_Sea"
+        ],
+        "lon_0": "150",
+        "width": 556.8,
+        "x_offset": 1575,
+        "y_offset": 1200
+    },
+    "black_sea": {
+        "highlighted_ids": [
+            "Black_Sea"
+        ],
+        "width": 613.9,
+        "x_offset": 1905,
+        "y_offset": 516
+    },
+    "bohai_sea": {
+        "highlighted_ids": [
+            "Bo_Hai"
+        ],
+        "lon_0": "150",
+        "width": 614.6,
+        "x_offset": 1398,
+        "y_offset": 492
+    },
+    "caribbean_sea": {
+        "highlighted_ids": [
+            "Caribbean_Sea",
+            "Gulf_of_Honduras",
+            "Lago_de_Maracaibo",
+            "Golfo_de_Urab\u00e1"
+        ],
+        "width": 710.7,
+        "x_offset": 750,
+        "y_offset": 800
+    },
+    "caspian_sea": {
+        "highlighted_ids": [
+            "Caspian_Sea",
+            "Garabogaz_Bay"
+        ],
+        "width": 710.7,
+        "x_offset": 2030,
+        "y_offset": 477
+    },
+    "celebes_sea": {
+        "highlighted_ids": [
+            "Celebes_Sea"
+        ],
+        "lon_0": "150",
+        "width": 710.7,
+        "x_offset": 1253,
+        "y_offset": 982
+    },
+    "celtic_sea": {
+        "highlighted_ids": [
+            "Celtic_Sea"
+        ],
+        "width": 449.1,
+        "x_offset": 1717,
+        "y_offset": 444
+    },
+    "chukchi_sea": {
+        "highlighted_ids": [
+            "Chukchi_Sea",
+            "Kotzebue_Sound"
+        ],
+        "lon_0": "150",
+        "width": 908,
+        "x_offset": 1805,
+        "y_offset": 172
+    },
+    "coral_sea": {
+        "highlighted_ids": [
+            "Coral_Sea",
+            "Gulf_of_Papua",
+            "Torres_Strait"
+        ],
+        "lon_0": "150",
+        "width": 1050,
+        "x_offset": 1310,
+        "y_offset": 1232
+    },
+    "denmark_strait": {
+        "highlighted_ids": [
+            "Denmark_Strait"
+        ],
+        "width": 746.2,
+        "x_offset": 1362,
+        "y_offset": 215
+    },
+    "east_china_sea": {
+        "highlighted_ids": [
+            "East_China_Sea",
+            "Hangzhou_Bay",
+            "Yangtze_River"
+        ],
+        "lon_0": "150",
+        "width": 1081.9,
+        "x_offset": 1183,
+        "y_offset": 502
+    },
+    "east_korea_bay": {
+        "highlighted_ids": [
+            "East_Korea_Bay"
+        ],
+        "lon_0": "150",
+        "width": 366.5,
+        "x_offset": 1586,
+        "y_offset": 615
+    },
+    "east_siberian_sea": {
+        "highlighted_ids": [
+            "East_Siberian_Sea",
+            "Chaun_Bay"
+        ],
+        "lon_0": "150",
+        "width": 908,
+        "x_offset": 1615,
+        "y_offset": 132
+    },
+    "english_channel": {
+        "highlighted_ids": [
+            "English_Channel_-_pangaea"
+        ],
+        "width": 449.1,
+        "x_offset": 1733,
+        "y_offset": 444
+    },
+    "english_channel_ne": {
+        "highlighted_ids": [
+            "English_Channel"
+        ],
+        "width": 449.1,
+        "x_offset": 1733,
+        "y_offset": 444
+    },
+    "flores_sea": {
+        "highlighted_ids": [
+            "Flores_Sea"
+        ],
+        "lon_0": "150",
+        "width": 505,
+        "x_offset": 1395,
+        "y_offset": 1135
+    },
+    "great_australian_bight": {
+        "highlighted_ids": [
+            "Great_Australian_Bight",
+            "Gulf_St._Vincent"
+        ],
+        "lon_0": "150",
+        "width": 584.7,
+        "x_offset": 1480,
+        "y_offset": 1510
+    },
+    "gulf_of_aden": {
+        "highlighted_ids": [
+            "Gulf_of_Aden"
+        ],
+        "width": 458.1,
+        "x_offset": 2235,
+        "y_offset": 951
+    },
+    "gulf_of_alaska": {
+        "highlighted_ids": [
+            "Gulf_of_Alaska",
+            "Cook_Inlet",
+            "Prince_William_Sound"
+        ],
+        "lon_0": "150",
+        "width": 908,
+        "x_offset": 1998,
+        "y_offset": 222
+    },
+    "gulf_of_bothnia": {
+        "highlighted_ids": [
+            "Gulf_of_Bothnia"
+        ],
+        "width": 458.1,
+        "x_offset": 1898,
+        "y_offset": 278
+    },
+    "gulf_of_california": {
+        "highlighted_ids": [
+            "Golfo_de_California"
+        ],
+        "width": 530.3,
+        "x_offset": 660,
+        "y_offset": 744
+    },
+    "gulf_of_carpentaria": {
+        "highlighted_ids": [
+            "Gulf_of_Carpentaria"
+        ],
+        "lon_0": "150",
+        "width": 822.7,
+        "x_offset": 1375,
+        "y_offset": 1250
+    },
+    "gulf_of_finland": {
+        "highlighted_ids": [
+            "Gulf_of_Finland"
+        ],
+        "width": 358.9,
+        "x_offset": 1918,
+        "y_offset": 338
+    },
+    "gulf_of_gab\u00e8s": {
+        "highlighted_ids": [
+            "Gulf_of_Gab\u00e8s"
+        ],
+        "width": 172.7,
+        "x_offset": 1988,
+        "y_offset": 720
+    },
+    "gulf_of_guinea": {
+        "highlighted_ids": [
+            "Gulf_of_Guinea",
+            "Bight_of_Benin",
+            "Bight_of_Biafra"
+        ],
+        "width": 783.5,
+        "x_offset": 1490,
+        "y_offset": 940
+    },
+    "gulf_of_khambh\u00e4t": {
+        "highlighted_ids": [
+            "Gulf_of_Khambh\u00e4t"
+        ],
+        "width": 423.9,
+        "x_offset": 2469,
+        "y_offset": 817
+    },
+    "gulf_of_kutch": {
+        "highlighted_ids": [
+            "Gulf_of_Kutch"
+        ],
+        "width": 423.9,
+        "x_offset": 2469,
+        "y_offset": 817
+    },
+    "gulf_of_lion": {
+        "highlighted_ids": [
+            "Golfe_du_Lion"
+        ],
+        "width": 181.3,
+        "x_offset": 1915,
+        "y_offset": 629
+    },
+    "gulf_of_mannar": {
+        "highlighted_ids": [
+            "Gulf_of_Mannar"
+        ],
+        "width": 332.1,
+        "x_offset": 2699,
+        "y_offset": 997
+    },
+    "gulf_of_martaban": {
+        "highlighted_ids": [
+            "Gulf_of_Martaban"
+        ],
+        "width": 423.9,
+        "x_offset": 2719,
+        "y_offset": 829
+    },
+    "gulf_of_mexico": {
+        "highlighted_ids": [
+            "Gulf_of_Mexico",
+            "Bah\u00eda_de_Campeche"
+        ],
+        "width": 584.7,
+        "x_offset": 730,
+        "y_offset": 755
+    },
+    "gulf_of_oman": {
+        "highlighted_ids": [
+            "Gulf_of_Oman"
+        ],
+        "width": 423.9,
+        "x_offset": 2323,
+        "y_offset": 811
+    },
+    "gulf_of_papua": {
+        "highlighted_ids": [
+            "Gulf_of_Papua"
+        ],
+        "lon_0": "150",
+        "width": 556.8,
+        "x_offset": 1533,
+        "y_offset": 1199
+    },
+    "gulf_of_riga": {
+        "highlighted_ids": [
+            "Gulf_of_Riga"
+        ],
+        "width": 295.3,
+        "x_offset": 1957,
+        "y_offset": 352
+    },
+    "gulf_of_sidra": {
+        "highlighted_ids": [
+            "Gulf_of_Sidra"
+        ],
+        "width": 255.1,
+        "x_offset": 2016,
+        "y_offset": 711
+    },
+    "gulf_of_thailand": {
+        "highlighted_ids": [
+            "Gulf_of_Thailand"
+        ],
+        "lon_0": "150",
+        "width": 573.7,
+        "x_offset": 1210,
+        "y_offset": 930
+    },
+    "gulf_of_tomini": {
+        "highlighted_ids": [
+            "Gulf_of_Tomini"
+        ],
+        "lon_0": "150",
+        "width": 556.8,
+        "x_offset": 1365,
+        "y_offset": 1100
+    },
+    "gulf_of_tonkin": {
+        "highlighted_ids": [
+            "Gulf_of_Tonkin"
+        ],
+        "lon_0": "150",
+        "width": 495.6,
+        "x_offset": 1263,
+        "y_offset": 842
+    },
+    "gulf_st_vincent": {
+        "highlighted_ids": [
+            "Gulf_St._Vincent"
+        ],
+        "lon_0": "150",
+        "width": 505.1,
+        "x_offset": 1550,
+        "y_offset": 1550
+    },
+    "halmahera_sea": {
+        "highlighted_ids": [
+            "Halmahera_Sea",
+            "Gulf_of_Buli",
+            "Gulf_of_Kau"
+        ],
+        "lon_0": "150",
+        "width": 556.8,
+        "x_offset": 1462,
+        "y_offset": 1090
+    },
+    "hangzhou_bay": {
+        "highlighted_ids": [
+            "Hangzhou_Bay"
+        ],
+        "lon_0": "150",
+        "width": 325.9,
+        "x_offset": 1527,
+        "y_offset": 760
+    },
+    "hudson_bay": {
+        "highlighted_ids": [
+            "Hudson_Bay",
+            "James_Bay"
+        ],
+        "width": 746.2,
+        "x_offset": 925,
+        "y_offset": 240
+    },
+    "hudson_strait": {
+        "highlighted_ids": [
+            "Hudson_Strait",
+            "Ungava_Bay"
+        ],
+        "width": 746.2,
+        "x_offset": 925,
+        "y_offset": 240
+    },
+    "ionian_sea": {
+        "highlighted_ids": [
+            "Ionian_Sea"
+        ],
+        "width": 325.6,
+        "x_offset": 1971,
+        "y_offset": 603
+    },
+    "java_sea": {
+        "comment": "According to IHO (1953) Sunda Strait belongs to the Java Sea. According to draft IHO (2002) it doesn't. Staying with the former.",
+        "highlighted_ids": [
+            "Java_Sea"
+        ],
+        "lon_0": "150",
+        "width": 710.7,
+        "x_offset": 1195,
+        "y_offset": 1030
+    },
+    "joseph_bonaparte_gulf": {
+        "highlighted_ids": [
+            "Joseph_Bonaparte_Gulf"
+        ],
+        "lon_0": "150",
+        "width": 481,
+        "x_offset": 1445,
+        "y_offset": 1279
+    },
+    "kattegat": {
+        "highlighted_ids": [
+            "Kattegat"
+        ],
+        "width": 295.3,
+        "x_offset": 1902,
+        "y_offset": 406
+    },
+    "kattegat,_sound_and_belts": {
+        "highlighted_ids": [
+            "Kattegat",
+            "_Internal_Denmark_Waters_1159120631",
+            "\u00d8resund"
+        ],
+        "width": 458.1,
+        "x_offset": 1772,
+        "y_offset": 338
+    },
+    "labrador_sea": {
+        "highlighted_ids": [
+            "Labrador_Sea"
+        ],
+        "width": 746.2,
+        "x_offset": 1152,
+        "y_offset": 325
+    },
+    "laccadive_sea": {
+        "highlighted_ids": [
+            "Laccadive_Sea",
+            "Gulf_of_Mannar"
+        ],
+        "width": 783.5,
+        "x_offset": 2385,
+        "y_offset": 868
+    },
+    "laptev_sea": {
+        "highlighted_ids": [
+            "Laptev_Sea",
+            "Gulf_of_Yana",
+            "Gulf_of_Olen\u2018k",
+            "Khatanga_Gulf"
+        ],
+        "lon_0": "150",
+        "width": 908,
+        "x_offset": 1415,
+        "y_offset": 112
+    },
+    "ligurian_sea": {
+        "highlighted_ids": [
+            "Ligurian_Sea"
+        ],
+        "width": 181.3,
+        "x_offset": 1963,
+        "y_offset": 618
+    },
+    "makassar_strait": {
+        "highlighted_ids": [
+            "Makassar_Strait"
+        ],
+        "lon_0": "150",
+        "width": 613.9,
+        "x_offset": 1315,
+        "y_offset": 1060
+    },
+    "malacca_strait": {
+        "highlighted_ids": [
+            "Strait_of_Malacca"
+        ],
+        "lon_0": "150",
+        "width": 573.7,
+        "x_offset": 1175,
+        "y_offset": 1000
+    },
+    "mediterranean_sea": {
+        "highlighted_ids": [
+            "Mediterranean_Sea_1159115321",
+            "Gulf_of_Sidra",
+            "Gulf_of_Gab\u00e8s",
+            "Mediterranean_Sea_1159116285",
+            "Balearic_Sea",
+            "Golfe_du_Lion",
+            "Alboran_Sea",
+            "Tyrrhenian_Sea",
+            "Ligurian_Sea",
+            "Ionian_Sea",
+            "Adriatic_Sea",
+            "Sea_of_Crete",
+            "Aegean_Sea"
+        ],
+        "width": 783.5,
+        "x_offset": 1716,
+        "y_offset": 489
+    },
+    "molucca_sea": {
+        "highlighted_ids": [
+            "Molucca_Sea"
+        ],
+        "lon_0": "150",
+        "width": 584.6,
+        "x_offset": 1388,
+        "y_offset": 1108
+    },
+    "mozambique_channel": {
+        "highlighted_ids": [
+            "Mozambique_Channel"
+        ],
+        "width": 783.5,
+        "x_offset": 1895,
+        "y_offset": 1268
+    },
+    "north_sea": {
+        "highlighted_ids": [
+            "North_Sea"
+        ],
+        "width": 556.8,
+        "x_offset": 1652,
+        "y_offset": 365
+    },
+    "norwegian_sea": {
+        "highlighted_ids": [
+            "Norwegian_Sea",
+            "Vestfjorden"
+        ],
+        "width": 676.8,
+        "x_offset": 1632,
+        "y_offset": 165
+    },
+    "palk_strait": {
+        "highlighted_ids": [
+            "Palk_Strait"
+        ],
+        "width": 332.1,
+        "x_offset": 2699,
+        "y_offset": 997
+    },
+    "persian_gulf": {
+        "highlighted_ids": [
+            "Persian_Gulf"
+        ],
+        "width": 423.9,
+        "x_offset": 2323,
+        "y_offset": 772
+    },
+    "philippine_sea": {
+        "comment": "According to the IHO (1953 and 2002), all the internal Philippine seas are part of the Philippine Sea. However, according to Wikipedia (and what I could glean from Britannica) they aren't. Only Leyte Gulf and Dinagat Sound are. Wikipedia isn't clear on whether Davao Gulf is, but the article on Mindanao doesn't list it as one of the adjacent bodies of water (implicitly treating it as part of the Philippine Sea), so I've included it.",
+        "highlighted_ids": [
+            "Philippine_Sea",
+            "_Internal_Philippines_Waters_1159120271",
+            "Leyte_Gulf",
+            "Davao_Gulf"
+        ],
+        "lon_0": "150",
+        "width": 1169.2,
+        "x_offset": 1058,
+        "y_offset": 712
+    },
+    "qiongzhou_strait": {
+        "highlighted_ids": [
+            "Qiongzhou_Strait"
+        ],
+        "lon_0": "150",
+        "width": 295.3,
+        "x_offset": 1435,
+        "y_offset": 860
+    },
+    "red_sea": {
+        "highlighted_ids": [
+            "Red_Sea",
+            "Gulf_of_Suez",
+            "Gulf_of_Aqaba"
+        ],
+        "width": 676.8,
+        "x_offset": 2005,
+        "y_offset": 751
+    },
+    "sargasso_sea": {
+        "highlighted_ids": [
+            "Sargasso_Sea"
+        ],
+        "width": 710.7,
+        "x_offset": 840,
+        "y_offset": 632
+    },
+    "savu_sea": {
+        "highlighted_ids": [
+            "Savu_Sea"
+        ],
+        "lon_0": "150",
+        "width": 325.6,
+        "x_offset": 1505,
+        "y_offset": 1223
+    },
+    "sea_of_azov": {
+        "highlighted_ids": [
+            "Sea_of_Azov"
+        ],
+        "width": 209.9,
+        "x_offset": 2204,
+        "y_offset": 568
+    },
+    "sea_of_crete": {
+        "highlighted_ids": [
+            "Sea_of_Crete"
+        ],
+        "width": 267.8,
+        "x_offset": 2074,
+        "y_offset": 674
+    },
+    "sea_of_japan": {
+        "comment": "IHO (1953 and 2002 draft) give Tsugaru Strait as part of Sea of Japan.",
+        "highlighted_ids": [
+            "Sea_of_Japan",
+            "East_Korea_Bay",
+            "Tsugaru_Strait"
+        ],
+        "lon_0": "150",
+        "width": 908,
+        "x_offset": 1328,
+        "y_offset": 432
+    },
+    "sea_of_marmara": {
+        "highlighted_ids": [
+            "Sea_of_Marmara",
+            "Dardanelles",
+            "Bosporus"
+        ],
+        "width": 164.4,
+        "x_offset": 2156,
+        "y_offset": 661
+    },
+    "sea_of_okhotsk": {
+        "highlighted_ids": [
+            "Sea_of_Okhotsk",
+            "Gulf_of_Sakhalin",
+            "Uda_Bay",
+            "Shelikhova_Gulf"
+        ],
+        "lon_0": "150",
+        "width": 1051.1,
+        "x_offset": 1358,
+        "y_offset": 252
+    },
+    "seram_sea": {
+        "highlighted_ids": [
+            "Ceram_Sea"
+        ],
+        "lon_0": "150",
+        "width": 556.8,
+        "x_offset": 1365,
+        "y_offset": 1100
+    },
+    "seto_inland_sea": {
+        "highlighted_ids": [
+            "Inner_Sea"
+        ],
+        "lon_0": "150",
+        "width": 366.5,
+        "x_offset": 1596,
+        "y_offset": 625
+    },
+    "singapore_strait": {
+        "highlighted_ids": [
+            "Strait_of_Singapore"
+        ],
+        "lon_0": "150",
+        "width": 222.6,
+        "x_offset": 1369,
+        "y_offset": 1145
+    },
+    "skagerrak": {
+        "highlighted_ids": [
+            "Skagerrak"
+        ],
+        "width": 458.1,
+        "x_offset": 1772,
+        "y_offset": 338
+    },
+    "solomon_sea": {
+        "highlighted_ids": [
+            "Solomon_Sea"
+        ],
+        "lon_0": "150",
+        "width": 556.8,
+        "x_offset": 1685,
+        "y_offset": 1190
+    },
+    "south_china_sea": {
+        "comment": "Follow IHO (1953). Include Taiwan Strait, Gulf of Tonkin, Qiongzhou Strait and Natuna Sea. (Wikipedia unclear.)",
+        "highlighted_ids": [
+            "South_China_Sea",
+            "Qiongzhou_Strait",
+            "Gulf_of_Tonkin",
+            "Taiwan_Strait"
+        ],
+        "lon_0": "150",
+        "width": 1227.7,
+        "x_offset": 1038,
+        "y_offset": 725
+    },
+    "strait_of_tartary": {
+        "highlighted_ids": [
+            "Tatar_Strait"
+        ],
+        "lon_0": "150",
+        "width": 481,
+        "x_offset": 1645,
+        "y_offset": 420
+    },
+    "sulu_sea": {
+        "highlighted_ids": [
+            "Sulu_Sea"
+        ],
+        "lon_0": "150",
+        "width": 676.8,
+        "x_offset": 1252,
+        "y_offset": 979
+    },
+    "taiwan_strait": {
+        "highlighted_ids": [
+            "Taiwan_Strait"
+        ],
+        "lon_0": "150",
+        "width": 664.2,
+        "x_offset": 1243,
+        "y_offset": 622
+    },
+    "tasman_sea": {
+        "highlighted_ids": [
+            "Tasman_Sea"
+        ],
+        "lon_0": "150",
+        "width": 1050,
+        "x_offset": 1350,
+        "y_offset": 1345
+    },
+    "timor_sea": {
+        "highlighted_ids": [
+            "Timor_Sea",
+            "Joseph_Bonaparte_Gulf"
+        ],
+        "lon_0": "150",
+        "width": 863.8,
+        "x_offset": 1345,
+        "y_offset": 1110
+    },
+    "torres_strait": {
+        "highlighted_ids": [
+            "Torres_Strait"
+        ],
+        "lon_0": "150",
+        "width": 556.8,
+        "x_offset": 1535,
+        "y_offset": 1199
+    },
+    "tsugaru_strait": {
+        "highlighted_ids": [
+            "Tsugaru_Strait"
+        ],
+        "lon_0": "150",
+        "width": 366.5,
+        "x_offset": 1646,
+        "y_offset": 575
+    },
+    "tyrrhenian_sea": {
+        "highlighted_ids": [
+            "Tyrrhenian_Sea"
+        ],
+        "width": 310.1,
+        "x_offset": 1926,
+        "y_offset": 600
+    },
+    "white_sea": {
+        "highlighted_ids": [
+            "White_Sea"
+        ],
+        "width": 325.6,
+        "x_offset": 2050,
+        "y_offset": 265
+    },
+    "yellow_sea": {
+        "highlighted_ids": [
+            "Yellow_Sea",
+            "Bo_Hai"
+        ],
+        "lon_0": "150",
+        "width": 1081.9,
+        "x_offset": 1183,
+        "y_offset": 502
+    },
+    "\u00f8resund": {
+        "highlighted_ids": [
+            "\u00d8resund"
+        ],
+        "width": 135.3,
+        "x_offset": 2022,
+        "y_offset": 456
+    }
+}
