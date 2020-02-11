@@ -83,6 +83,16 @@
         "x_offset": 1375,
         "y_offset": 1135
     },
+    "balkan_peninsula": {
+        "highlight_colour": "#C12838",
+        "highlighted_ids": [
+            "balkan_pen."
+        ],
+        "lon_0": "0",
+        "width": 500,
+        "x_offset": 1894,
+        "y_offset": 502
+    },
     "baltic_sea": {
         "highlighted_ids": [
             "Baltic_Sea",
@@ -95,6 +105,24 @@
         "width": 530.3,
         "x_offset": 1757,
         "y_offset": 315
+    },
+    "banda_sea": {
+        "highlighted_ids": [
+            "Banda_Sea_-_pangaea"
+        ],
+        "lon_0": "150",
+        "width": 676.8,
+        "x_offset": 1370,
+        "y_offset": 1090
+    },
+    "banda_sea_ne": {
+        "highlighted_ids": [
+            "Banda_Sea"
+        ],
+        "lon_0": "150",
+        "width": 676.8,
+        "x_offset": 1370,
+        "y_offset": 1090
     },
     "barents_sea": {
         "highlighted_ids": [
@@ -757,6 +785,18 @@
         "width": 676.8,
         "x_offset": 2005,
         "y_offset": 751
+    },
+    "saint_helena": {
+        "focus_circles": [
+            {
+                "cx": 226,
+                "cy": 193
+            }
+        ],
+        "highlighted_ids": [],
+        "width": 814.1,
+        "x_offset": 1570,
+        "y_offset": 1134
     },
     "sargasso_sea": {
         "highlighted_ids": [

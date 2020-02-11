@@ -5,11 +5,16 @@ import os
 import json
 from lxml import etree
 
+import argparse
+
+parser = argparse.ArgumentParser(description="Combine the main and mini-maps into a single SVG.")
+parser.add_argument("sea", nargs='?')
+parser.add_argument("lon_0", nargs='?')
+parser.add_argument("--interactive", default="yes", const="yes", nargs='?',
+                    help="Is the SVG supposed to be interactive?")
+
 def get_current_sea(args):
-    if len(args) > 1:
-        return args[1]
-    else:
-        return False
+    return args.sea
 
 def get_parameters(args, sea):
     if sea and os.path.isfile("map_data.json"):
@@ -27,6 +32,8 @@ def get_parameters(args, sea):
                           ("width", 1000),
                           ("highlighted_ids", []),
                           ("partially_highlighted_ids", []),
+                          ("focus_circles", []),
+                          ("highlight_colour", "#4790c8"),
                           # deliberately a string to avoid rounding
                           # issues if lon_0 ever becomes non-integer
                           ("lon_0", "0")]
@@ -34,21 +41,37 @@ def get_parameters(args, sea):
     for (parameter, default_value) in default_parameters:
         if not parameter in sea_data:
             sea_data[parameter] = default_value
-    if len(args) > 2:
+    if args.lon_0:
         # overwrite lon_0, even if it was set in map_data
-        sea_data["lon_0"] = args[2]
+        sea_data["lon_0"] = args.lon_0
 
     return sea_data
 
-current_sea = get_current_sea(sys.argv)
+def is_interactive(args):
+    """Assume the SVG is to be interactive unless explicitly stated otherwise.
+    """
+    if args.interactive == "no":
+        return False
+    else:
+        return True
 
-data = get_parameters(sys.argv, current_sea)
+arguments = parser.parse_args()
+current_sea = get_current_sea(arguments)
+
+data = get_parameters(arguments, current_sea)
+
+interactive = is_interactive(arguments) and current_sea
 
 
 
 def input_map_filename(map_type, lon_0, current_sea):
     stem = map_type
-    if (map_type == "main_map") and (current_sea in ["aral_sea", "celtic_sea", "english_channel", "bering_strait"]):
+    if (map_type == "main_map") and (current_sea in ["aral_sea",
+                                                     "celtic_sea",
+                                                     "english_channel",
+                                                     "banda_sea",
+                                                     "bering_strait",
+                                                     "balkan_peninsula"]):
         stem += "_for_%s" % current_sea
 
     if lon_0 == "0":
@@ -69,7 +92,7 @@ def marker_element(width, height, x_offset, y_offset):
                              ("x", x_offset),
                              ("y", y_offset)]:
             # width of mini_map globe is 1/32 that of the main globe
-            marker.attrib[attrib] = str(size / 32)
+            marker.attrib[attrib] = "{0:.6g}".format(size / 32)
 
     marker_opacity.attrib["fill"] = "#C02637"
     marker_opacity.attrib["opacity"] = "0.1"
@@ -118,6 +141,9 @@ class CombineSVGs:
         self.y_offset = sea_data["y_offset"]
         self.highlighted_ids = sea_data["highlighted_ids"]
         self.partially_highlighted_ids = sea_data["partially_highlighted_ids"]
+        self.focus_circles = sea_data["focus_circles"]
+        self.highlight_colour = sea_data["highlight_colour"]
+
         self.lon_0 = sea_data["lon_0"]
 
         self.height = self.width * 9/16
@@ -137,7 +163,7 @@ class CombineSVGs:
             self.main_map_g.append(child)
 
     def style_main_map(self):
-        self.main_map_g.attrib["transform"] = "scale({s}) translate({x} {y})".format(
+        self.main_map_g.attrib["transform"] = "scale({s:.6g}) translate({x:.6g} {y:.6g})".format(
             x=-self.x_offset,
             y=-self.y_offset,
             s=self.svg_width / self.width)
@@ -150,8 +176,8 @@ class CombineSVGs:
                 })
             # should be exactly one element...
             for e in elements:
-                e.attrib["fill"] = "#4790c8"
-                e.attrib["stroke"] = "#4790c8"
+                e.attrib["fill"] = self.highlight_colour
+                e.attrib["stroke"] = self.highlight_colour
 
         for ph_id in self.partially_highlighted_ids:
             elements = self.main_map_g.xpath(
@@ -162,7 +188,7 @@ class CombineSVGs:
             # should be exactly one element...
             for e in elements:
                 e.attrib["fill"] = "url(#hatchPattern)"
-                e.attrib["stroke"] = "#4790c8"
+                e.attrib["stroke"] = self.highlight_colour
 
     def create_mini_map(self):
         mini_map_file = input_map_filename("mini_map", self.lon_0, self.current_sea)
@@ -174,7 +200,7 @@ class CombineSVGs:
             self.mini_map_g.append(child)
 
     def style_mini_map(self):
-        self.mini_map_g.attrib["transform"] = "translate({x} {y}) scale({s})".format(
+        self.mini_map_g.attrib["transform"] = "translate({x:.6g} {y:.6g}) scale({s:.6g})".format(
             x=5,
             # height of mini_map globe is 77
             y=self.svg_height - 5 - (77 * self.svg_width/125 * 0.28),
@@ -193,6 +219,30 @@ class CombineSVGs:
         #     # the mini_map should take up 0.28 of the width of the visible map
         #     s = 0.28 * 32 )
 
+    def add_focus_circles(self, root, circles):
+        for c_data in circles:
+            c_g = etree.SubElement(root, "g")
+            c1 = etree.SubElement(c_g, "circle")
+            c2 = etree.SubElement(c_g, "circle")
+            if not "r" in c_data:
+                c_data["r"] = 10
+            if not "cx" in c_data:
+                c_data["cx"] = 0
+                # possibly print some warning?
+            if not "cy" in c_data:
+                c_data["cy"] = 0
+                # possibly print some warning?
+            for c in [c1, c2]:
+                for attrib in "r", "cx", "cy":
+                    c.attrib[attrib] = "{0:.6g}".format(c_data[attrib])
+
+            c1.attrib["fill"] = "#C12838"
+            c1.attrib["opacity"] = "0.12"
+
+            c2.attrib["stroke"] = "#C12838"
+            c2.attrib["stroke-width"] = "2"
+            c2.attrib["fill"] = "none"
+
     def prepare_root(self):
         self.create_main_map()
         self.style_main_map()
@@ -203,6 +253,7 @@ class CombineSVGs:
 
         self.root.append(self.main_map_g)
         self.root.append(self.mini_map_g)
+        self.add_focus_circles(self.root, self.focus_circles)
 
         if self.partially_highlighted_ids:
             self.root.insert(0, pattern_definitions_element())
@@ -244,8 +295,6 @@ class CombineSVGs:
 
         self.main_map.write(target_directory + output_filename)
 
-
-interactive = True and current_sea
 
 combine = CombineSVGs(data, current_sea)
 combine.prepare_root()

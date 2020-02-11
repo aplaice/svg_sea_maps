@@ -1,5 +1,8 @@
 MS = ./node_modules/mapshaper/bin/mapshaper
 
+# Is the SVG supposed to be interactive (load controls.js)?
+INTERACTIVE ?= yes
+
 MAIN_MAP_SHAPEFILES ::= shp/simplified/ne_10m_lakes.shp \
 shp/upstream/ne_10m_geography_marine_polys.shp \
 shp/upstream/ne_50m_admin_0_countries_lakes.shp \
@@ -67,40 +70,53 @@ svg/intermediate/150/mini_map.svg: mini_map.sh $(MINI_MAP_150_SHAPEFILES)
 svg/intermediate/main_map_for_aral_sea.svg: main_map.sh $(MAIN_MAP_0_SHAPEFILES) shp/upstream/ne_10m_lakes_historic.shp
 	./main_map.sh 0 aral_sea
 
-svg/intermediate/main_map_for_celtic_sea.svg: main_map.sh $(MAIN_MAP_0_SHAPEFILES) shp/from_kml/Celtic\ Sea.shp
+svg/intermediate/main_map_for_celtic_sea.svg: main_map.sh $(MAIN_MAP_0_SHAPEFILES) shp/from_kml/Celtic_Sea.shp
 	./main_map.sh 0 celtic_sea
 
-svg/intermediate/main_map_for_english_channel.svg: main_map.sh $(MAIN_MAP_0_SHAPEFILES) shp/from_kml/English\ Channel.shp
+svg/intermediate/main_map_for_english_channel.svg: main_map.sh $(MAIN_MAP_0_SHAPEFILES) shp/from_kml/English_Channel.shp
 	./main_map.sh 0 english_channel
+
+svg/intermediate/150/main_map_for_banda_sea.svg: main_map.sh $(MAIN_MAP_0_SHAPEFILES) shp/projected_w3/150/from_kml/Banda_Sea.shp
+	./main_map.sh 150 banda_sea
 
 svg/intermediate/150/main_map_for_bering_strait.svg: main_map.sh $(MAIN_MAP_150_SHAPEFILES) shp/projected_w3/150/original/bering_strait.shp
 	./main_map.sh 150 bering_strait
+
+svg/intermediate/main_map_for_balkan_peninsula.svg: main_map.sh $(MAIN_MAP_0_SHAPEFILES) shp/upstream/ne_10m_geography_regions_polys.shp
+	./main_map.sh 0 balkan_peninsula
 
 svg/combined_map.svg: combined_map.py svg/intermediate/mini_map.svg svg/intermediate/main_map.svg
 	./combined_map.py
 
 svg/150/%.svg: combined_map.py svg/intermediate/150/mini_map.svg svg/intermediate/150/main_map.svg map_data.json
-	./combined_map.py $* 150
+	./combined_map.py --interactive="$(INTERACTIVE)" $* 150
 
 svg/%.svg: combined_map.py svg/intermediate/mini_map.svg svg/intermediate/main_map.svg map_data.json
-	./combined_map.py $*
+	./combined_map.py --interactive="$(INTERACTIVE)" $*
 
 svg/aral_sea.svg: combined_map.py svg/intermediate/mini_map.svg svg/intermediate/main_map_for_aral_sea.svg map_data.json
-	./combined_map.py aral_sea
+	./combined_map.py --interactive="$(INTERACTIVE)" aral_sea
 
 svg/celtic_sea.svg: combined_map.py svg/intermediate/mini_map.svg svg/intermediate/main_map_for_celtic_sea.svg map_data.json
-	./combined_map.py celtic_sea
+	./combined_map.py --interactive="$(INTERACTIVE)" celtic_sea
 
 svg/english_channel.svg: combined_map.py svg/intermediate/mini_map.svg svg/intermediate/main_map_for_english_channel.svg map_data.json
-	./combined_map.py english_channel
+	./combined_map.py --interactive="$(INTERACTIVE)" english_channel
 
-svg/150/bering_strait.svg: combined_map.py svg/intermediate/mini_map.svg svg/intermediate/main_map_for_bering_strait.svg map_data.json
-	./combined_map.py bering_strait 150
+svg/150/banda_sea.svg: combined_map.py svg/intermediate/mini_map.svg svg/intermediate/150/main_map_for_banda_sea.svg map_data.json
+	./combined_map.py --interactive="$(INTERACTIVE)" banda_sea 150
+
+svg/150/bering_strait.svg: combined_map.py svg/intermediate/mini_map.svg svg/intermediate/150/main_map_for_bering_strait.svg map_data.json
+	./combined_map.py --interactive="$(INTERACTIVE)" bering_strait 150
+
+svg/balkan_peninsula.svg: combined_map.py svg/intermediate/mini_map.svg svg/intermediate/main_map_for_balkan_peninsula.svg map_data.json
+	./combined_map.py --interactive="$(INTERACTIVE)" balkan_peninsula 0
 
 # When making PNGs the SVGs are considered intermediate files.
 # Normally, make would delete them after making the PNGs. To avoid
 # that mark them as ".PRECIOUS"
-.PRECIOUS: svg/%.svg svg/150/%.svg
+# Ditto for SHP files.
+.PRECIOUS: svg/%.svg svg/150/%.svg shp/upstream/%.shp shp/from_kml/%.shp
 
 # not implemented yet
 %_interactive.svg: combined_map.py svg/intermediate/mini_map.svg svg/intermediate/main_map.svg map_data.json
@@ -137,3 +153,5 @@ all_pngs: all_0_pngs all_150_pngs
 all_tests:
 	bash tests/consistent_output.sh
 
+all_tests_verbose:
+	bash tests/consistent_output.sh "display_diff"
