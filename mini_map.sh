@@ -20,6 +20,10 @@ then
 
     declare -a mapshaper_projection=(-proj '+proj=wintri +lon_0=150' 'target=*')
     # lon_0=150
+else
+    echo "lon_0 other than 0 and 150 is not supported for mini-maps, yet"
+    # it shouldn't be hard though
+    exit 1
 fi
 
 mkdir -p "$(dirname "$output_svg")"

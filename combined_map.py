@@ -7,6 +7,8 @@ from lxml import etree
 
 import argparse
 
+from utils import is_interactive, add_interactive_elements
+
 parser = argparse.ArgumentParser(description="Combine the main and mini-maps into a single SVG.")
 parser.add_argument("sea", nargs='?')
 parser.add_argument("lon_0", nargs='?')
@@ -47,14 +49,6 @@ def get_parameters(args, sea):
 
     return sea_data
 
-def is_interactive(args):
-    """Assume the SVG is to be interactive unless explicitly stated otherwise.
-    """
-    if args.interactive == "no":
-        return False
-    else:
-        return True
-
 arguments = parser.parse_args()
 current_sea = get_current_sea(arguments)
 
@@ -71,7 +65,8 @@ def input_map_filename(map_type, lon_0, current_sea):
                                                      "english_channel",
                                                      "banda_sea",
                                                      "bering_strait",
-                                                     "balkan_peninsula"]):
+                                                     "balkan_peninsula",
+                                                     "sumatra"]):
         stem += "_for_%s" % current_sea
 
     if lon_0 == "0":
@@ -265,19 +260,7 @@ class CombineSVGs:
             h=self.svg_height)
 
     def add_interactive_elements(self):
-        if self.lon_0 == "0":
-            controls_directory = "../"
-        else:
-            controls_directory = "../../"
-
-        self.root.attrib["data-current-sea"] = self.current_sea
-        self.root.attrib["data-lon_0"] = self.lon_0
-        # id="script_tag" type="text/javascript" xlink:href="controls.js
-        # xmlns:xlink="http://www.w3.org/1999/xlink"
-        script_element = etree.SubElement(self.root, "script")
-        script_element.attrib["id"] = "script_tag"
-        script_element.attrib["type"] = "text/javascript"
-        script_element.attrib["{http://www.w3.org/1999/xlink}href"] = controls_directory + "controls.js"
+        add_interactive_elements(self.root, self.lon_0, self.current_sea)
 
     def write_output(self):
         if self.lon_0 == "0":

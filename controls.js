@@ -6,6 +6,13 @@ if (svg_element.dataset.lon_0 !== undefined) {
   lon_0 = svg_element.dataset.lon_0;
 }
 
+let not_zoomed = false;
+if (svg_element.dataset.notZoomed !== undefined) {
+  not_zoomed = true;
+} // else {
+//   const not_zoomed = false;
+// }
+
 const svg_width = 500;
 
 // window.alert("hi");
@@ -32,7 +39,7 @@ function get_json() {
   xhr.onload = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       map_data = JSON.parse(xhr.responseText);
-      ensure_data_for_current_sea_is_defined();
+      ensure_data_for_current_sea_is_defined(not_zoomed);
       refresh_svg(map_data);
     };
   };
@@ -41,13 +48,18 @@ function get_json() {
 
 get_json();
 
-function ensure_data_for_current_sea_is_defined() {
-  let objects = [["x_offset", 500], ["y_offset", 500], ["width", 1000], ["highlighted_ids", []]];
+function ensure_data_for_current_sea_is_defined(not_zoomed) {
+  let objects;
+  if (not_zoomed) {
+    objects = [["highlighted_ids", []], ["zoomed", false]];
+  } else {
+    objects = [["x_offset", 500], ["y_offset", 500], ["width", 1000], ["highlighted_ids", []]];
+  }
   if (current_sea in map_data) {
     for (let i=0; i < objects.length; i++) {
       let o_k = objects[i][0];
       let o_v = objects[i][1];
-      if (! o_k in map_data[current_sea]) {
+      if (! (o_k in map_data[current_sea])) {
 	map_data[current_sea][o_k] = o_v;
       }
     }
@@ -73,7 +85,9 @@ function refresh_svg(map_data) {
   let scale = svg_width/width;
 
   let main_map = document.getElementById("Main_map");
-  main_map.setAttribute("transform", `scale(${scale}) translate(${-x_offset} ${-y_offset})`);
+  if (main_map !== null) {
+    main_map.setAttribute("transform", `scale(${scale}) translate(${-x_offset} ${-y_offset})`);
+  }
 
   let currently_highlighted_elements = document.getElementsByClassName("selected");
   while (currently_highlighted_elements.length > 0) {
@@ -83,20 +97,27 @@ function refresh_svg(map_data) {
   }
   
   for (let i=0; i < highlighted_ids.length; i++) {
-    document.getElementById(highlighted_ids[i]).setAttribute("fill", "#4790c8");
-    document.getElementById(highlighted_ids[i]).setAttribute("stroke", "#4790c8");
-    document.getElementById(highlighted_ids[i]).setAttribute("class", "selected");
+    if (document.getElementById(highlighted_ids[i]) === null) {
+      console.log(highlighted_ids[i]);
+    } else {
+      document.getElementById(highlighted_ids[i]).setAttribute("fill", "#4790c8");
+      document.getElementById(highlighted_ids[i]).setAttribute("stroke", "#4790c8");
+      document.getElementById(highlighted_ids[i]).setAttribute("class", "selected");
+    }
   }
 
-  let mini_map_markers = document.getElementById("Marker").children;
-  let height = 9/16 * width;
-  for (let i=0; i < mini_map_markers.length; i++) {
-    m = mini_map_markers[i];
-    // width of mini_map globe is 1/32 that of the main globe
-    m.setAttribute("x", x_offset/32);
-    m.setAttribute("y", y_offset/32);
-    m.setAttribute("width", width/32);
-    m.setAttribute("height", height/32);
+  let mini_map_marker_g = document.getElementById("Marker");
+  if (mini_map_marker_g !== null) {
+    let mini_map_markers = mini_map_marker_g.children;
+    let height = 9/16 * width;
+    for (let i=0; i < mini_map_markers.length; i++) {
+      m = mini_map_markers[i];
+      // width of mini_map globe is 1/32 that of the main globe
+      m.setAttribute("x", x_offset/32);
+      m.setAttribute("y", y_offset/32);
+      m.setAttribute("width", width/32);
+      m.setAttribute("height", height/32);
+    }
   }
 
   document.title = current_sea;

@@ -2,13 +2,12 @@
 
 declare -A shps
 shps[bounding_box]=upstream/ne_10m_wgs84_bounding_box.shp
-shps[seas]=upstream/ne_10m_geography_marine_polys.shp
+shps[seas]=densified/upstream/ne_10m_geography_marine_polys.shp
 shps[countries]=upstream/ne_50m_admin_0_countries_lakes.shp
 
 shps[lakes]=simplified/ne_10m_lakes.shp
 
-# Use the 10m version, as the 50m one doesn't contain featurecla for filtering border type
-shps[borders]=upstream/ne_10m_admin_0_boundary_lines_land.shp
+shps[borders]=upstream/ne_50m_admin_0_boundary_lines_land.shp
 # Use the 50m version, as the 10m has a wonky Western Sahara border
 # resulting in an ugly dashed line.  Using a slightly less precise
 # version for disputed borders (already "fuzzy") should be OK.
@@ -31,7 +30,7 @@ then
 
     output_svg="svg/intermediate/main_map.svg"
 
-    declare -a mapshaper_projection=(-proj '+proj=wintri +lon_0=0' 'target=*')
+    declare -a mapshaper_projection=(-proj '+proj=wintri +lon_0=0' densify 'target=*')
     # lon_0=0
 
     countries_min_slivers=100000000
@@ -52,6 +51,20 @@ then
     countries_min_slivers=0.01
 
     declare -a clip_countries_to_coastline_p=()
+else
+    lon_0="$1"
+    shps[bounding_box]=misc/"$lon_0"_centred_bounding_box.shp
+
+    prefix_shps_array "shp/projected_w3/"$lon_0"/"
+
+    output_svg="svg/intermediate/$lon_0/main_map.svg"
+
+    # we use geoproject's projection instead of mapshaper's
+    declare -a mapshaper_projection=()
+
+    countries_min_slivers=0.01
+
+    declare -a clip_countries_to_coastline_p=()
 fi
 
 if [ x"$2" == x ]
@@ -59,33 +72,37 @@ then
     declare -a extra_land_options=()
 elif [ x"$2" == xaral_sea ]
 then
-    declare -a extra_land_options=(-i "shp/upstream/ne_10m_lakes_historic.shp" 'encoding=utf-8' 'name=Historic_lakes' \
-					     -style 'stroke=none' 'stroke-width=0.75' 'fill=none' \
-					     -each 'name=name.replace(/ /g, "_")' \
-					     -each 'name+="_historic"')
+    declare -a extra_land_options=(-i "shp/upstream/ne_10m_lakes_historic.shp" 'encoding=utf-8' \
+				      'name=Historic_lakes' \
+				      -style 'stroke=none' 'stroke-width=0.75' 'fill=none' \
+				      -each 'name=name.replace(/ /g, "_")' \
+				      -each 'name+="_historic"')
     # -style 'stroke=#1178AC' 'stroke-width=0.75' 'fill=#B3DFF5'
     # -style 'stroke=none' 'stroke-width=0.75' 'fill=none'
     output_svg="${output_svg/%.svg/_for_aral_sea.svg}"
 elif [ x"$2" == xceltic_sea ]
 then
     # these have to be under (before) countries, so can't re-use the aral_sea_... variable
-    declare -a pangaea_sea_optional_options=(-i "shp/from_kml/Celtic_Sea.shp" 'encoding=utf-8' 'name=Pangaea_sea_holder' \
-					     -style 'stroke=none' 'stroke-width=1' 'fill=none' \
-					     -each 'name="Celtic_Sea"')
+    declare -a pangaea_sea_optional_options=(-i "shp/from_kml/Celtic_Sea.shp" 'encoding=utf-8' \
+						'name=Pangaea_sea_holder' \
+						-style 'stroke=none' 'stroke-width=1' 'fill=none' \
+						-each 'name="Celtic_Sea"')
 
     output_svg="${output_svg/%.svg/_for_celtic_sea.svg}"
 elif [ x"$2" == xenglish_channel ]
 then
-    declare -a pangaea_sea_optional_options=(-i "shp/from_kml/English_Channel.shp" 'encoding=utf-8' 'name=Pangaea_sea_holder' \
-					     -style 'stroke=none' 'stroke-width=1' 'fill=none' \
-					     -each 'name="English_Channel_-_pangaea"')
+    declare -a pangaea_sea_optional_options=(-i "shp/from_kml/English_Channel.shp" 'encoding=utf-8' \
+						'name=Pangaea_sea_holder' \
+						-style 'stroke=none' 'stroke-width=1' 'fill=none' \
+						-each 'name="English_Channel_-_pangaea"')
 
     output_svg="${output_svg/%.svg/_for_english_channel.svg}"
 elif [ x"$2" == xbanda_sea ]
 then
-    declare -a pangaea_sea_optional_options=(-i "shp/projected_w3/150/from_kml/Banda_Sea.shp" 'encoding=utf-8' 'name=Pangaea_sea_holder' \
-					     -style 'stroke=none' 'stroke-width=1' 'fill=none' \
-					     -each 'name="Banda_Sea_-_pangaea"')
+    declare -a pangaea_sea_optional_options=(-i "shp/projected_w3/150/from_kml/Banda_Sea.shp" 'encoding=utf-8' \
+						'name=Pangaea_sea_holder' \
+						-style 'stroke=none' 'stroke-width=1' 'fill=none' \
+						-each 'name="Banda_Sea_-_pangaea"')
 
     output_svg="${output_svg/%.svg/_for_banda_sea.svg}"
 elif [ x"$2" == xbering_strait ]
@@ -93,21 +110,34 @@ then
     # not actually using data from pangaea, but the option can be
     # re-used since the sea needs to be "over" the normal seas, but
     # still "below" normal land
-    declare -a pangaea_sea_optional_options=(-i "shp/projected_w3/150/original/bering_strait.shp" 'encoding=utf-8' 'name=Bering_Strait_holder' \
-					     -style 'stroke=none' 'stroke-width=1' 'fill=none' )
+    declare -a pangaea_sea_optional_options=(-i "shp/projected_w3/150/original/bering_strait.shp" 'encoding=utf-8' \
+						'name=Bering_Strait_holder' \
+						-style 'stroke=none' 'stroke-width=1' 'fill=none' )
 
     output_svg="${output_svg/%.svg/_for_bering_strait.svg}"
 elif [ x"$2" == xbalkan_peninsula ]
 then
-    # ne_10m_geography_regions_polys.shp
-    declare -a extra_land_options=(-i "shp/upstream/ne_10m_geography_regions_polys.shp" 'encoding=utf-8' 'name=Peninsulas' \
-					     -style 'stroke=none' 'stroke-width=0.5' 'fill=none' \
-					     -each 'name=name.replace(/ /g, "_")' \
-					     -each 'name=name.toLowerCase()' \
-					     -filter 'featurecla == "Pen/cape"' -filter 'scalerank <= 2' )
+    declare -a extra_land_options=(-i "shp/upstream/ne_50m_geography_regions_polys.shp" 'encoding=utf-8' \
+				      'name=Peninsulas' \
+				      -style 'stroke=none' 'stroke-width=0.5' 'fill=none' \
+				      -each 'name=name.replace(/ /g, "_")' \
+				      -each 'name=name.toLowerCase()' \
+				      -filter 'featurecla == "Pen/cape"' -filter 'scalerank <= 2' )
     declare -a clip_extra_land_land=( -clip 'target=Peninsulas' 'source=Coastline' )
     output_svg="${output_svg/%.svg/_for_balkan_peninsula.svg}"
     # use aral_sea_optional_options (and rename (perhaps extra_land_...); also rename pangaea_sea_optional_options)
+elif [ x"$2" == xsumatra ]
+then
+    declare -a extra_land_options=(-i "shp/projected_w3/150/upstream/ne_50m_geography_regions_polys.shp" 'encoding=utf-8' \
+				      'name=Islands' \
+				      -style 'stroke=none' 'stroke-width=0' 'fill=none' \
+				      -each 'name=name.replace(/ /g, "_")' \
+				      -each 'name=name.toLowerCase()' \
+				      -filter 'featurecla == "Island"' \
+				      -simplify '20%')
+    declare -a clip_extra_land_land=( -clip 'target=Islands' 'source=Coastline' )
+    output_svg="${output_svg/%.svg/_for_sumatra.svg}"
+    # output_svg="$(echo "$output_svg" | sed 's/.svg/_for_'"$2"'.svg/')"
 fi
 
 
@@ -115,7 +145,7 @@ mkdir -p "$(dirname "$output_svg")"
 
 ./node_modules/mapshaper/bin/mapshaper \
     -i "${shps[bounding_box]}" 'encoding=utf-8' 'name=Bounding_box' \
-    -i "${shps[seas]}" 'encoding=utf-8' 'name=Seas' \
+    -i "${shps[seas]}" 'encoding=utf-8' 'name=Seas' snap \
     "${pangaea_sea_optional_options[@]}" \
     -i "${shps[countries]}" 'encoding=utf-8' 'name=Countries' \
     "${extra_land_options[@]}" \
@@ -146,7 +176,6 @@ mkdir -p "$(dirname "$output_svg")"
     "${clip_extra_land_land[@]}" \
     -clip 'target=Borders' 'source=Coastline' \
     -clip 'target=Disputed_borders' 'source=Coastline' \
-    -simplify '10%' \
     `# fine-tuning for nameless sea areas to get unique ids` \
     -each 'target=Seas' 'if (name === "") { name = "_" + note + "_" + ne_id; }' \
     `# remove whitespace from names` \

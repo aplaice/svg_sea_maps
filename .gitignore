@@ -8,3 +8,4 @@ shp/*/
 !shp/original/
 svg/
 package-lock.json
+__pycache__/

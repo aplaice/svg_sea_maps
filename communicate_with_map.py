@@ -24,7 +24,8 @@ map_data_filename = "map_data.json"
 
 def round_widths_in_map_data(data, ndigits):
     for k in data:
-        data[k]["width"] = round(data[k]["width"], ndigits)
+        if "width" in data[k]:
+            data[k]["width"] = round(data[k]["width"], ndigits)
     return data
 
 class MyHandler(http.server.BaseHTTPRequestHandler):

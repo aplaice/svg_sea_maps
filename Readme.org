@@ -10,8 +10,10 @@ The data for the Celtic Sea and the English Channel are from [[https://doi.org/1
 
 #+begin_src shell
 sudo apt install npm gdal-bin
-npm install mapshaper
-npm install d3-geo-projection
+# npm install mapshaper
+# npm install d3-geo-projection
+# for the versions used currently:
+npm install mapshaper@0.5.5 d3-geo-projection
 #+end_src
 
 * Warning

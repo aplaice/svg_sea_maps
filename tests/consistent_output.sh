@@ -5,7 +5,10 @@ png/ug-map-aral_sea.png
 png/ug-map-celtic_sea.png
 png/150/ug-map-coral_sea.png
 png/150/ug-map-bering_strait.png
-png/150/ug-map-banda_sea.png)
+png/150/ug-map-banda_sea.png
+png/ug-map-balkan_peninsula.png
+png/no_zoom/150/ug-map-pacific_ocean-nobox.png
+png/no_zoom/11.5/ug-map-atlantic_ocean-nobox.png)
 
 for test_file in "${TEST_FILES[@]}"
 do
