@@ -97,6 +97,14 @@ then
 						-each 'name="English_Channel_-_pangaea"')
 
     output_svg="${output_svg/%.svg/_for_english_channel.svg}"
+elif [ x"$2" == xbaltic_sea_pangaea ]
+then
+    declare -a pangaea_sea_optional_options=(-i "shp/from_kml/Baltic_Sea.shp" 'encoding=utf-8' \
+						'name=Pangaea_sea_holder' \
+						-style 'stroke=none' 'stroke-width=1' 'fill=none' \
+						-each 'name="Baltic_Sea_-_pangaea"')
+
+    output_svg="${output_svg/%.svg/_for_baltic_sea_pangaea.svg}"
 elif [ x"$2" == xbanda_sea ]
 then
     declare -a pangaea_sea_optional_options=(-i "shp/projected_w3/150/from_kml/Banda_Sea.shp" 'encoding=utf-8' \

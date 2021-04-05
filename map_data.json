@@ -233,7 +233,7 @@
         "x_offset": 1894,
         "y_offset": 502
     },
-    "baltic_sea": {
+    "baltic_sea_ne": {
         "highlighted_ids": [
             "Baltic_Sea",
             "Mecklenburger_Bucht",
@@ -241,6 +241,14 @@
             "Gulf_of_Finland",
             "Gulf_of_Riga",
             "Kaliningrad"
+        ],
+        "width": 530.3,
+        "x_offset": 1757,
+        "y_offset": 315
+    },
+    "baltic_sea_pangaea": {
+        "highlighted_ids": [
+            "Baltic_Sea_-_pangaea"
         ],
         "width": 530.3,
         "x_offset": 1757,
@@ -441,8 +449,8 @@
         ],
         "lon_0": "150",
         "width": 1081.9,
-        "x_offset": 1183,
-        "y_offset": 502
+        "x_offset": 1081,
+        "y_offset": 499
     },
     "east_korea_bay": {
         "highlighted_ids": [
@@ -909,10 +917,12 @@
     },
     "north_sea": {
         "highlighted_ids": [
+            "Boknafjorden",
+            "Waddenzee",
             "North_Sea"
         ],
         "width": 556.8,
-        "x_offset": 1652,
+        "x_offset": 1722,
         "y_offset": 365
     },
     "norwegian_sea": {
@@ -1274,8 +1284,8 @@
         ],
         "lon_0": "150",
         "width": 863.8,
-        "x_offset": 1345,
-        "y_offset": 1110
+        "x_offset": 1307,
+        "y_offset": 1132
     },
     "torres_strait": {
         "highlighted_ids": [
@@ -1318,8 +1328,8 @@
         ],
         "lon_0": "150",
         "width": 1081.9,
-        "x_offset": 1183,
-        "y_offset": 502
+        "x_offset": 1081,
+        "y_offset": 499
     },
     "\u00f8resund": {
         "highlighted_ids": [

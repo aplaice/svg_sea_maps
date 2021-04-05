@@ -63,6 +63,7 @@ def input_map_filename(map_type, lon_0, current_sea):
     if (map_type == "main_map") and (current_sea in ["aral_sea",
                                                      "celtic_sea",
                                                      "english_channel",
+                                                     "baltic_sea_pangaea",
                                                      "banda_sea",
                                                      "bering_strait",
                                                      "balkan_peninsula",
