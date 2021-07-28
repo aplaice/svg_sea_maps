@@ -188,8 +188,10 @@ mkdir -p "$(dirname "$output_svg")"
     -each 'target=Seas' 'if (name === "") { name = "_" + note + "_" + ne_id; }' \
     `# remove whitespace from names` \
     -each 'target=Countries' 'ADMIN=ADMIN.replace(/ /g, "_")' \
-    -each 'target=Seas' 'name=name.replace(/ /g, "_")' \
-    -each 'target=Lakes' 'name=name.replace(/ /g, "_")' \
+    -each 'target=Seas' 'name=name.replace(/[ ‘\(\)]/g, "_")' \
+    -each 'target=Seas' 'name=name.replace(/'"'"'/g, "_")' \
+    -each 'target=Lakes' 'name=name.replace(/[ ‘\(\)]/g, "_")' \
+    -each 'target=Lakes' 'name=name.replace(/'"'"'/g, "_")' \
     `# borders don't really need names (and want to avoid duplicate "Line of control")` \
     -each 'target=Disputed_borders' 'delete name' \
     `# fine-tuning to avoid duplicate ids` \

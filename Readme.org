@@ -37,6 +37,10 @@ A line from Mys Chaplina (64°50'N – 172°20'W), in Russia, eastwards to Sledg
 
 However, since the coordinates of Mys Chaplina (64°50'N – 172°20'W) do not agree with those given on Wikipedia ([[https://en.wikipedia.org/wiki/Cape_Chaplino][64°24′17″N 172°13′39″W]]) or those implied by the map on page 21 of [[https://web.archive.org/web/20190529115635/http://www.iho.int/mtg_docs/com_wg/S-23WG/S-23WG_Misc/Draft_2002/S-23_Draft_2002_NORTH_PACIFIC.doc][the aforementioned document]], I've adjusted the south-western vertex to the coordinates given by Wikipedia for Mys Chaplina.
 
+* Baltic Sea
+
+The Baltic Sea ("Pangaea") SVG was manually modified so that the Szczecin and Curonian Lagoons were excluded, by changing the order of these two elements.  (If this type of "exclusion" becomes more frequent I'll automate it with mapshaper's -erase feature.)
+
 * License
 
 [[file:map_data.json]] and the images in =tests/samples/= are released under [[https://creativecommons.org/licenses/by-sa/3.0/][CC BY-SA 3.0]]. All the remaining files are released under the [[https://unlicense.org/][Unlicense]].
