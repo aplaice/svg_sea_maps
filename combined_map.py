@@ -66,6 +66,7 @@ def input_map_filename(map_type, lon_0, current_sea):
                                                      "baltic_sea",
                                                      "gulf_of_california",
                                                      "banda_sea",
+                                                     "gulf_of_carpentaria",
                                                      "bering_strait",
                                                      "balkan_peninsula",
                                                      "sumatra"]):

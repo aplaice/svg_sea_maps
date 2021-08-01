@@ -551,9 +551,18 @@
         "x_offset": 660,
         "y_offset": 744
     },
-    "gulf_of_carpentaria": {
+    "gulf_of_carpentaria_ne": {
         "highlighted_ids": [
             "Gulf_of_Carpentaria"
+        ],
+        "lon_0": "150",
+        "width": 822.7,
+        "x_offset": 1375,
+        "y_offset": 1250
+    },
+    "gulf_of_carpentaria": {
+        "highlighted_ids": [
+            "Gulf_of_Carpentaria_-_pangaea"
         ],
         "lon_0": "150",
         "width": 822.7,

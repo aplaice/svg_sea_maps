@@ -115,6 +115,9 @@ svg/intermediate/main_map_for_gulf_of_california.svg: main_map.sh $(MAIN_MAP_0_S
 svg/intermediate/150/main_map_for_banda_sea.svg: main_map.sh $(MAIN_MAP_0_SHAPEFILES) shp/projected_w3/150/from_kml/Banda_Sea.shp
 	./main_map.sh 150 banda_sea
 
+svg/intermediate/150/main_map_for_gulf_of_carpentaria.svg: main_map.sh $(MAIN_MAP_0_SHAPEFILES) shp/projected_w3/150/from_kml/Gulf_of_Carpentaria.shp
+	./main_map.sh 150 gulf_of_carpentaria
+
 svg/intermediate/150/main_map_for_bering_strait.svg: main_map.sh $(MAIN_MAP_150_SHAPEFILES) shp/projected_w3/150/original/bering_strait.shp
 	./main_map.sh 150 bering_strait
 
@@ -150,6 +153,9 @@ svg/gulf_of_california.svg: $(COMBINED_MAP_SCRIPT) svg/intermediate/mini_map.svg
 
 svg/150/banda_sea.svg: $(COMBINED_MAP_SCRIPT) svg/intermediate/150/mini_map.svg svg/intermediate/150/main_map_for_banda_sea.svg map_data.json
 	./combined_map.py --interactive="$(INTERACTIVE)" banda_sea 150
+
+svg/150/gulf_of_carpentaria.svg: $(COMBINED_MAP_SCRIPT) svg/intermediate/150/mini_map.svg svg/intermediate/150/main_map_for_gulf_of_carpentaria.svg map_data.json
+	./combined_map.py --interactive="$(INTERACTIVE)" gulf_of_carpentaria 150
 
 svg/150/bering_strait.svg: $(COMBINED_MAP_SCRIPT) svg/intermediate/150/mini_map.svg svg/intermediate/150/main_map_for_bering_strait.svg map_data.json
 	./combined_map.py --interactive="$(INTERACTIVE)" bering_strait 150

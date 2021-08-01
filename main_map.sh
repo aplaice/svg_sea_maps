@@ -121,6 +121,14 @@ then
 						-each 'name="Banda_Sea_-_pangaea"')
 
     output_svg="${output_svg/%.svg/_for_banda_sea.svg}"
+elif [ x"$2" == xgulf_of_carpentaria ]
+then
+    declare -a pangaea_sea_optional_options=(-i "shp/projected_w3/150/from_kml/Gulf_of_Carpentaria.shp" 'encoding=utf-8' \
+						'name=Pangaea_sea_holder' \
+						-style 'stroke=none' 'stroke-width=1' 'fill=none' \
+						-each 'name="Gulf_of_Carpentaria_-_pangaea"')
+
+    output_svg="${output_svg/%.svg/_for_gulf_of_carpentaria.svg}"
 elif [ x"$2" == xbering_strait ]
 then
     # not actually using data from pangaea, but the option can be
