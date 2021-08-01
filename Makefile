@@ -106,8 +106,11 @@ svg/intermediate/main_map_for_celtic_sea.svg: main_map.sh $(MAIN_MAP_0_SHAPEFILE
 svg/intermediate/main_map_for_english_channel.svg: main_map.sh $(MAIN_MAP_0_SHAPEFILES) shp/from_kml/English_Channel.shp
 	./main_map.sh 0 english_channel
 
-svg/intermediate/main_map_for_baltic_sea_pangaea.svg: main_map.sh $(MAIN_MAP_0_SHAPEFILES) shp/from_kml/Baltic_Sea.shp
-	./main_map.sh 0 baltic_sea_pangaea
+svg/intermediate/main_map_for_baltic_sea.svg: main_map.sh $(MAIN_MAP_0_SHAPEFILES) shp/from_kml/Baltic_Sea.shp
+	./main_map.sh 0 baltic_sea
+
+svg/intermediate/main_map_for_gulf_of_california.svg: main_map.sh $(MAIN_MAP_0_SHAPEFILES) shp/from_kml/Gulf_of_California.shp
+	./main_map.sh 0 gulf_of_california
 
 svg/intermediate/150/main_map_for_banda_sea.svg: main_map.sh $(MAIN_MAP_0_SHAPEFILES) shp/projected_w3/150/from_kml/Banda_Sea.shp
 	./main_map.sh 150 banda_sea
@@ -139,8 +142,11 @@ svg/celtic_sea.svg: $(COMBINED_MAP_SCRIPT) svg/intermediate/mini_map.svg svg/int
 svg/english_channel.svg: $(COMBINED_MAP_SCRIPT) svg/intermediate/mini_map.svg svg/intermediate/main_map_for_english_channel.svg map_data.json
 	./combined_map.py --interactive="$(INTERACTIVE)" english_channel
 
-svg/baltic_sea_pangaea.svg: $(COMBINED_MAP_SCRIPT) svg/intermediate/mini_map.svg svg/intermediate/main_map_for_baltic_sea_pangaea.svg map_data.json
-	./combined_map.py --interactive="$(INTERACTIVE)" baltic_sea_pangaea
+svg/baltic_sea.svg: $(COMBINED_MAP_SCRIPT) svg/intermediate/mini_map.svg svg/intermediate/main_map_for_baltic_sea.svg map_data.json
+	./combined_map.py --interactive="$(INTERACTIVE)" baltic_sea
+
+svg/gulf_of_california.svg: $(COMBINED_MAP_SCRIPT) svg/intermediate/mini_map.svg svg/intermediate/main_map_for_gulf_of_california.svg map_data.json
+	./combined_map.py --interactive="$(INTERACTIVE)" gulf_of_california
 
 svg/150/banda_sea.svg: $(COMBINED_MAP_SCRIPT) svg/intermediate/150/mini_map.svg svg/intermediate/150/main_map_for_banda_sea.svg map_data.json
 	./combined_map.py --interactive="$(INTERACTIVE)" banda_sea 150

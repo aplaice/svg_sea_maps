@@ -246,7 +246,7 @@
         "x_offset": 1757,
         "y_offset": 315
     },
-    "baltic_sea_pangaea": {
+    "baltic_sea": {
         "highlighted_ids": [
             "Baltic_Sea_-_pangaea",
             "Gulf_of_Bothnia"
@@ -535,9 +535,17 @@
         "x_offset": 1898,
         "y_offset": 278
     },
-    "gulf_of_california": {
+    "gulf_of_california_ne": {
         "highlighted_ids": [
             "Golfo_de_California"
+        ],
+        "width": 530.3,
+        "x_offset": 660,
+        "y_offset": 744
+    },
+    "gulf_of_california": {
+        "highlighted_ids": [
+            "Gulf_of_California_-_pangaea"
         ],
         "width": 530.3,
         "x_offset": 660,
