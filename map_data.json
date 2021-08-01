@@ -465,7 +465,8 @@
     "east_siberian_sea": {
         "highlighted_ids": [
             "East_Siberian_Sea",
-            "Chaun_Bay"
+            "Chaun_Bay",
+            "Dmitriy_Laptev_Strait"
         ],
         "lon_0": "150",
         "width": 908,
