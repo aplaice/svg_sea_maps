@@ -113,6 +113,14 @@ then
 						-each 'name="Gulf_of_California_-_pangaea"')
 
     output_svg="${output_svg/%.svg/_for_gulf_of_california.svg}"
+elif [ x"$2" == xwhite_sea ]
+then
+    declare -a pangaea_sea_optional_options=(-i "shp/from_kml/White_Sea.shp" 'encoding=utf-8' \
+						'name=Pangaea_sea_holder' \
+						-style 'stroke=none' 'stroke-width=1' 'fill=none' \
+						-each 'name="White_Sea_-_pangaea"')
+
+    output_svg="${output_svg/%.svg/_for_white_sea.svg}"
 elif [ x"$2" == xbanda_sea ]
 then
     declare -a pangaea_sea_optional_options=(-i "shp/projected_w3/150/from_kml/Banda_Sea.shp" 'encoding=utf-8' \

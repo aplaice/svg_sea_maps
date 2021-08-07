@@ -1335,6 +1335,14 @@
     },
     "white_sea": {
         "highlighted_ids": [
+            "White_Sea_-_pangaea"
+        ],
+        "width": 325.6,
+        "x_offset": 2050,
+        "y_offset": 265
+    },
+    "white_sea_ne": {
+        "highlighted_ids": [
             "White_Sea"
         ],
         "width": 325.6,
